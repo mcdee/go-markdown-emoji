@@ -5,7 +5,7 @@
 [![Travis CI](https://img.shields.io/travis/mcdee/go-markdown-emoji.svg)](https://travis-ci.org/mcdee/go-markdown-emoji)
 [![codecov.io](https://img.shields.io/codecov/c/github/mcdee/go-markdown-emoji.svg)](https://codecov.io/github/mcdee/go-markdown-emoji)
 
-Go module to add emoji support to [go-markdown][https://github.com/gomarkdown/markdown].
+Go module to add emoji support to [go-markdown](https://github.com/gomarkdown/markdown).
 
 
 ## Table of Contents
@@ -28,7 +28,7 @@ go get github.com/mcdee/go-markdown-emoji
 
 `go-markdown-emoji` provides parser and renderer hooks to the markdown engine.  The parser hook is `Parser` and the renderer `Renderer`.
 
-Emojis are signified in Markdown as names between colons, for example `:smile:`.  A full list of the emojis supported can be seen in `emoji.go`.
+Emojis are signified in Markdown as names between colons, for example `:smile:`.  A full list of the emojis supported can be seen in [emoji.go](https://github.com/mcdee/go-markdown-emoji/blob/master/emoji.go).
 
 ### Example
 
@@ -50,7 +50,7 @@ func main() {
       RenderNodeHook: emoji.Renderer,
     })
 
-    html := markdown.ToHTML(":smile:", p, r)
+    html := markdown.ToHTML([]byte(":smile:"), p, r)
     fmt.Printf("%s\n", string(html))
 }
 ```
