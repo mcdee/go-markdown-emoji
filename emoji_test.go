@@ -17,31 +17,51 @@ func TestEmoji(t *testing.T) {
 		input  []byte
 		output []byte
 	}{
-		{
+		{ // 0
 			input:  []byte(``),
 			output: []byte(``),
 		},
-		{
+		{ // 1
 			input:  []byte(`:`),
 			output: []byte(`<p>:</p>`),
 		},
-		{
+		{ // 2
 			input:  []byte(`::`),
 			output: []byte(`<p>::</p>`),
 		},
-		{
+		{ // 3
 			input:  []byte(`notemoji`),
 			output: []byte(`<p>notemoji</p>`),
 		},
-		{
+		{ // 4
 			input:  []byte(`:smile:`),
-			output: []byte(`<img class="emoji" src="https://twemoji.maxcdn.com/2/svg/1f604.svg" alt=":smile:"></img>`),
+			output: []byte(`<p><img class="emoji" src="https://twemoji.maxcdn.com/2/svg/1f604.svg" alt=":smile:"></img></p>`),
 		},
-		{
+		{ // 5
+			input:  []byte(`:smile: :smile:`),
+			output: []byte(`<p><img class="emoji" src="https://twemoji.maxcdn.com/2/svg/1f604.svg" alt=":smile:"></img> <img class="emoji" src="https://twemoji.maxcdn.com/2/svg/1f604.svg" alt=":smile:"></img></p>`),
+		},
+		{ // 6
+			input:  []byte(`:smile::smile:`),
+			output: []byte(`<p><img class="emoji" src="https://twemoji.maxcdn.com/2/svg/1f604.svg" alt=":smile:"></img><img class="emoji" src="https://twemoji.maxcdn.com/2/svg/1f604.svg" alt=":smile:"></img></p>`),
+		},
+		{ // 7
+			input:  []byte(`A big :smile:`),
+			output: []byte(`<p>A big <img class="emoji" src="https://twemoji.maxcdn.com/2/svg/1f604.svg" alt=":smile:"></img></p>`),
+		},
+		{ // 8
+			input:  []byte(`:smile: for you`),
+			output: []byte(`<p><img class="emoji" src="https://twemoji.maxcdn.com/2/svg/1f604.svg" alt=":smile:"></img> for you</p>`),
+		},
+		{ // 9
+			input:  []byte(`A *big* :smile: for you`),
+			output: []byte(`<p>A <em>big</em> <img class="emoji" src="https://twemoji.maxcdn.com/2/svg/1f604.svg" alt=":smile:"></img> for you</p>`),
+		},
+		{ // 10
 			input:  []byte(`:woman_cartwheeling:`),
-			output: []byte(`<img class="emoji" src="https://twemoji.maxcdn.com/2/svg/1f938-200d-2640-fe0f.svg" alt=":woman_cartwheeling:"></img>`),
+			output: []byte(`<p><img class="emoji" src="https://twemoji.maxcdn.com/2/svg/1f938-200d-2640-fe0f.svg" alt=":woman_cartwheeling:"></img></p>`),
 		},
-		{
+		{ // 11
 			input:  []byte(`:unknown:`),
 			output: []byte(`<p>:unknown:</p>`),
 		},
