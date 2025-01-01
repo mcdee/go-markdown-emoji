@@ -1,5 +1,8 @@
 # go-markdown-emoji
 
+> [!CAUTION]
+> This repository is now archived.  A supported version of this codebase can be found at https://github.com/4strodev/go-markdown-emoji
+
 [![Tag](https://img.shields.io/github/tag/mcdee/go-markdown-emoji.svg)](https://github.com/mcdee/go-markdown-emoji/releases/)
 [![License](https://img.shields.io/github/license/mcdee/go-markdown-emoji.svg)](LICENSE)
 [![Travis CI](https://img.shields.io/travis/mcdee/go-markdown-emoji.svg)](https://travis-ci.org/mcdee/go-markdown-emoji)
